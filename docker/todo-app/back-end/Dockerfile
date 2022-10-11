@@ -2,8 +2,12 @@ FROM node:14
 
 EXPOSE 3001
 
-ADD node_modules.tar.gz .
+RUN mkdir -p /todo-app/back-end
 
-COPY . .
+ADD node_modules.tar.gz /todo-app/back-end
+
+COPY . /todo-app/back-end
+
+WORKDIR /todo-app/back-end
 
 CMD ["npm", "start"]
